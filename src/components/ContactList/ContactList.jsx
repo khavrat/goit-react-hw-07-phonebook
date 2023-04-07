@@ -13,7 +13,7 @@ import {
 
 function ContactList() {
   const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
+  // const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const onDeleteContact = id => {
