@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   removeContact,
   selectContacts,
-  selectFilter,
+  // selectFilter,
 } from '../../redux/contactsSlice';
 
 function ContactList() {
