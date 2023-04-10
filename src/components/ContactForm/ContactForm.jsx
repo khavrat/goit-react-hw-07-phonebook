@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { addContact } from 'redux/contactsSlice';
 import { addContactAsync } from '../../redux/contactsSlice';
+import { toast } from 'react-toastify';
 import { Form, FormInput, FormLabel, FormBtn } from './ContactForm.styled';
 
 function ContactForm() {
@@ -9,7 +9,7 @@ function ContactForm() {
   const [phone, setPhone] = useState('');
   const dispatch = useDispatch();
 
- const handleChange = e => {
+  const handleChange = e => {
     const { name, value } = e.currentTarget;
     switch (name) {
       case 'name':
@@ -24,18 +24,24 @@ function ContactForm() {
     }
   };
 
- const reset = () => {
-    setName('')
-    setPhone('')
+  const reset = () => {
+    setName('');
+    setPhone('');
   };
 
-
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    const contact = { name, phone }
-    dispatch(addContactAsync(contact));
-    
-    reset();
+    try {
+      const statusData = await dispatch(addContactAsync({ name, phone }));
+      if (statusData.error) {
+        toast.error(statusData.payload);
+      } else {
+        reset();
+        toast.success(`${statusData.payload.name} has been added successfully`);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (
@@ -68,4 +74,3 @@ function ContactForm() {
 }
 
 export default ContactForm;
-
