@@ -6,7 +6,6 @@ import {
 } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  // removeContact,
   selectContacts,
   removeContactAsync,
   selectFilter,
@@ -22,7 +21,9 @@ function ContactList() {
     const deletedContact = contacts.find(contact => contact.id === id);
     try {
       await dispatch(removeContactAsync(id));
-      toast.success(`${deletedContact.name} has been deleted successfully`);
+      toast.info(`🚀 ${deletedContact.name} has been deleted successfully`, {
+        delay: 250,
+      });
     } catch (error) {
       toast.error(
         `Could not remove contact${deletedContact.name}`
@@ -31,7 +32,6 @@ function ContactList() {
   };
 
   const visibleContacts = () => {
-    console.log('filter in List :>> ', filter );
     const normalizedFilter = filter.toLowerCase();
     return Array.isArray(contacts)
       ? contacts.filter(contact =>

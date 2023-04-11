@@ -5,7 +5,7 @@ import {
 import { fetchContacts, addContact, removeContact } from './contactsAPI';
 
 export const fetchContactsAsync = createAsyncThunk(
-  'contacts/fetchContacts',
+  'contacts/fetchAll',
   async () => {
     const data = await fetchContacts();
     return data;
@@ -25,10 +25,9 @@ export const addContactAsync = createAsyncThunk(
 );
 
 export const removeContactAsync = createAsyncThunk(
-  'contacts/removeContact',
+  'contacts/deleteContact',
   async id => {
     const data = await removeContact(id);
-    console.log('data in contactsSlice :>> ', data);
     return data;
   }
 );
@@ -47,7 +46,6 @@ const contactsSlice = createSlice({
   reducers: {
     setFilter: (state, action) => {
       state.filter = action.payload;
-      console.log('state.filter :>> ', state.filter);
     },
   },
 

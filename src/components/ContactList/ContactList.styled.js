@@ -10,7 +10,7 @@ export const ContactElement = styled.li`
 
 export const ContactElSpan = styled.span`
   display: inline-block;
-  width: 140px;
+  width: 200px;
 `;
 
 export const ContactBtn = styled.button`
