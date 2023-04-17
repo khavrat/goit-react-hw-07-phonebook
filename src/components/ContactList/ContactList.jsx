@@ -51,7 +51,7 @@ function ContactList() {
             type="button"
             onClick={() => onDeleteContact(visibleContact.id)}
           >
-            Delete
+              delete
           </ContactBtn>
         </ContactElement>
       ))}

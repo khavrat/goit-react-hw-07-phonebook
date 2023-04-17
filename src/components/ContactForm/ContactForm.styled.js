@@ -22,6 +22,7 @@ export const FormLabel = styled.label`
   line-height: 1.2;
   margin-top: 20px;
   margin-bottom: 8px;
+  color: #ffffff;
 `;
 
 export const FormBtn = styled.button`
@@ -30,13 +31,12 @@ export const FormBtn = styled.button`
   line-height: 1.1;
   padding: 4px 12px;
   border-radius: 4px;
-  border: 1px solid #bdbdbd;
+  border: none  ;
   background-color: #ffffff;
   color: #000000;
   transition: background-color 250ms linear, color 250ms linear;
   cursor: pointer;
   &:hover {
-    background-color: #5036ff;
-    color: #ffffff;
+    background-color: rgba(59, 144, 235, 1);
   }
 `;

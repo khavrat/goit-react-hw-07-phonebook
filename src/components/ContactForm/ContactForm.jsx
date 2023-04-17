@@ -46,7 +46,7 @@ function ContactForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormLabel htmlFor="name">Name</FormLabel>
+      <FormLabel htmlFor="name">name</FormLabel>
       <FormInput
         className="input"
         type="text"
@@ -57,7 +57,7 @@ function ContactForm() {
         onChange={handleChange}
         required
       />
-      <FormLabel htmlFor="number">Number</FormLabel>
+      <FormLabel htmlFor="number">number</FormLabel>
       <FormInput
         className="input"
         type="tel"
@@ -68,7 +68,7 @@ function ContactForm() {
         onChange={handleChange}
         required
       />
-      <FormBtn type="submit">Add contact</FormBtn>
+      <FormBtn type="submit">add contact</FormBtn>
     </Form>
   );
 }
